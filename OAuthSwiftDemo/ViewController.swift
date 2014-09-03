@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println(error.localizedDescription)
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -113,17 +113,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int  {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
         return services.count
     }
     
-    func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath:NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel.text = services[indexPath.row]
+        cell.textLabel?.text = services[indexPath.row]
         return cell;
     }
     
-    func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         var service: String = services[indexPath.row]
         switch service {
             case "Twitter":
@@ -139,7 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             default:
                 println("default")
         }
-        tableView!.deselectRowAtIndexPath(indexPath, animated:true)
+        tableView.deselectRowAtIndexPath(indexPath, animated:true)
     }
 }
 
