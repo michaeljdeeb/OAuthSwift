@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWebViewDelegate {
         
             TODO - Possibly due to the initalization of the ViewController
         */
-        let viewController: ViewController = ViewController(coder: NSCoder())
+        let viewController: ViewController = ViewController(nibName: nil, bundle: nil)
         let naviController: UINavigationController = UINavigationController(rootViewController: viewController)
         self.window!.rootViewController = naviController
         self.window!.makeKeyAndVisible()
